@@ -34,3 +34,4 @@ class Solution(object):
         return len(s)-1 in match    
 
 print Solution().isMatch('aaa','ab*a.')
+ 
