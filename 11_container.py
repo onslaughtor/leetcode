@@ -15,7 +15,7 @@ class Node:
         self.right.left=self.left
 
 class Solution(object):
-    #linked list O(nlogn)
+    #linked list Solution O(nlogn)
     def maxArea1(self, height):
         """
         :type height: List[int]
@@ -38,7 +38,7 @@ class Solution(object):
             maxArea=max(maxArea,max(abs(head.right.index-t[0]),abs(tail.left.index-t[0]))*t[1])
            # print t[0],t[1],head.right.index,tail.left.index   
         return maxArea
-
+    # two pointer solution O(n)
     def maxArea(self, height):
         i,j=0,len(height)-1
         maxArea=0
