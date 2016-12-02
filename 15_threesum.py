@@ -1,3 +1,8 @@
+'''
+Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? 
+Find all unique triplets in the array which gives the sum of zero.
+'''
+
 class Solution(object):
     def threeSum(self, nums):
         """
@@ -26,3 +31,10 @@ class Solution(object):
 S = [-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]
 #S = [0,0,0]
 print Solution().threeSum(S)
+
+'''
+Solution: traverse and compute all pair of two-sum 
+    and check whether current number*-1 is in the previous two-sum set. 
+    sort the array firstly to avoid repeated answer
+Type: Implement
+'''

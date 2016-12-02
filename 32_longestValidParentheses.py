@@ -1,3 +1,8 @@
+'''
+Given a string containing just the characters '(' and ')', 
+find the length of the longest valid (well-formed) parentheses substring.
+'''
+
 class Solution(object):
     def longestValidParentheses(self, s):
         """
@@ -22,4 +27,12 @@ class Solution(object):
         return ans
 
 print Solution().longestValidParentheses(')()(()(())()((()')
-       
+
+
+'''
+Solution: use a stack to record the position of unmatched '('.
+    dp[i] represent the left end of the longest valid sequence that ends at i if i is ')'
+    let x be the position of the matched '(', dp[i]=dp[x-1] when x-1 is a ')' otherwise x
+    the answer is the maximum of i-dp[i]+1
+Type: DP
+''' 

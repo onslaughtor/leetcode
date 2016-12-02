@@ -31,17 +31,14 @@ class Solution(object):
         if n==1:
             return 0
         for i in range(n):
-            nums[i]=min(n-1,nums[i]+i)
-        # st=self.buildST(nums)
+            nums[i]=nums[i]+i
         ans=1
         cur=0
-        left=0
-        while(nums[cur]<n-1):
+        while(nums[cur]+1<len(nums)):
             tmp=cur
-            for i in range(left,nums[cur]+1):
+            for i in range(cur+1,nums[cur]+1):
                 if nums[i]>nums[tmp]:
                     tmp=i
-            left=nums[cur]+1
             cur=tmp
             ans+=1
         return ans
@@ -49,3 +46,9 @@ class Solution(object):
 
 print Solution().jump([2,1,1,1,1])
         
+'''
+Solution: let dest[i] be the farthest destination from i
+    each time, we choose to jump a point x such at dest[x] is the farthest, in order to have more choice in the next step. 
+    Since dest[i] must be greater than i, the each position is just traversed once during searching the maximum 
+Type: Greedy
+'''

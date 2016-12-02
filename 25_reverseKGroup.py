@@ -1,3 +1,7 @@
+'''
+Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+'''
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -57,3 +61,9 @@ def generateList(l):
     return head.next
 
 Solution().reverseKGroup(generateList([1,2,3,4,5]),2)
+'''
+Solution: record the tail of last group and the head of the next group while traverse each group from right to left, 
+hang it to the tail of the last tail one by one and hang next start to the current tail. 
+use a superhead and supertail to reduce boundary check
+Type: LinkedList
+'''

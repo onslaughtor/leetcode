@@ -1,3 +1,9 @@
+'''
+Given an array S of n integers, 
+are there elements a, b, c, and d in S such that a + b + c + d = target?
+Find all unique quadruplets in the array which gives the sum of target.
+'''
+
 class Solution(object):
     def fourSum(self, nums, target):
         """
@@ -27,3 +33,9 @@ class Solution(object):
 
 S = [1,0,-1,0,-2,2]
 print Solution().fourSum(S,0)
+
+'''
+Solution: traverse the array, compute the two-sum set of the previous nums, 
+    then traverse the following nums to check whether target-current-following in the two-sum set
+    sort the array firstly to avoid repeated results
+'''

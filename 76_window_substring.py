@@ -1,3 +1,6 @@
+'''
+Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+'''
 class Solution(object):
     def minWindow(self, s, t):
         """
@@ -38,3 +41,10 @@ class Solution(object):
             return ''
         else:
             return s[ans[0]:ans[1]+1]
+
+'''
+Solution: scan S from left to right until all characters in T has appeared, some may appeared more than once.
+    move the left pointer forward until all the charaters appeared exactly once
+    that's one window. move the right pointer to find other windows.
+Type: Two Pointer
+'''

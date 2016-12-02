@@ -1,6 +1,8 @@
-# '.' Matches any single character.
-# '*' Matches zero or more of the preceding element.
-# The matching should cover the entire input string (not partial).
+'''
+ '.' Matches any single character.
+ '*' Matches zero or more of the preceding element.
+ The matching should cover the entire input string (not partial).
+'''
 class Solution(object):
 
     def equal(self,s,p):
@@ -34,4 +36,11 @@ class Solution(object):
         return len(s)-1 in match    
 
 print Solution().isMatch('aaa','ab*a.')
- 
+
+'''
+Solution: traverse the pattern string and use a set to record which position of the input string has been matched
+if the letter is asterisk('*'), pass
+if the next letter is '*', traverse the matched position and extend each position until mismatch
+otherwise, traverse the matched position and  compare weather the next position is matched to the current letter
+if the last position of the input string in the match set, it's a perfect match
+'''

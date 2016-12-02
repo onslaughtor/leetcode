@@ -60,8 +60,8 @@ words = ["oath","pea","eat","rain"]
 print Solution().findWords(board,words)
 
 '''
-Solution: brute force DFS is ok for small dataset, build a trie tree to mantain the query words is efficient for the big dataset
+Solution: brute force DFS is feasible for small dataset, build a trie tree to mantain the query words is efficient for the big dataset
     when choosing the next node to traverse, no need to check each letter in the TrieNode(TLE because of 26x slower)
-    remember to recory the status when backtracking
+    remember to recover the status when backtracking
 Type: Trie Tree 
 '''

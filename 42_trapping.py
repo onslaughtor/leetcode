@@ -1,3 +1,7 @@
+'''
+Given n non-negative integers representing an elevation map where the width of each bar is 1, 
+compute how much water it is able to trap after raining.
+'''
 class Solution(object):
     def trap(self, height):
         """
@@ -22,7 +26,12 @@ class Solution(object):
 a=[0,1,0,2,1,0,1,3,2,5,2,1,4]
 b=[0,1,0,2,1,0,1,3,2,1,2,1]
 print Solution().trap(a)
-        
-            
+
+'''        
+Solution: Let left[i] be the highest line left to ith line 
+    and right[i] be the height to the right, both are exclusive.
+    the area above i is min(left[i],right[i])-height[i], add each area up
+Type: DP
+'''
 
  

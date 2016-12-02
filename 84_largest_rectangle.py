@@ -1,3 +1,7 @@
+'''
+Given n non-negative integers representing the histogram's bar height where the width of each bar is 1,
+find the area of largest rectangle in the histogram.
+'''
 class Solution(object):
     # build the Sparse Table
     def build_st(self,h):
@@ -53,3 +57,12 @@ class Solution(object):
         
 print Solution().largestRectangleArea([2,1,5,6,2,3,5,4,7,4,3,2])
 # print Solution().largestRectangleArea([2,1,5,6,2,3])
+
+'''
+Solution: scan the lines and we want to know the area of rectangle whose height is dertermined by this line,
+    it is determined by the position of the first shorter line to the left and right.
+    use a stack to record the lines in increasing order, each time when we want to put a new line to the stack,
+    while the top line is equal to higher than it, we keep poping the top element,
+    the current line is the first shorter line left to the popped line and the previous line in the stack is the first shorter line to its left
+Type: Priority Queue
+'''

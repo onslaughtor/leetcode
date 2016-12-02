@@ -1,3 +1,9 @@
+'''
+There are two sorted arrays nums1 and nums2 of size m and n respectively.
+Find the median of the two sorted arrays. 
+The overall run time complexity should be O(log (m+n)).
+'''
+
 class Solution(object):
 
     def findKth(self,nums1,nums2,k):
@@ -32,3 +38,9 @@ class Solution(object):
 
 
 print Solution().findMedianSortedArrays([4,5,7],[1,2,3,6,8,9,10])
+
+'''
+Solution: it's equivalent to find the kth number of the merged array.
+    to find it, we compare the k/2th number of the two array and desert the smaller part
+    be careful when one's length is smaller than k/2
+'''

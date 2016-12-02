@@ -1,3 +1,6 @@
+'''
+Given an unsorted integer array, find the first missing positive integer.
+'''
 class Solution(object):
     def firstMissingPositive(self, nums):
         """
@@ -22,3 +25,9 @@ class Solution(object):
 a=[2,2,2,2,2]
 print Solution().firstMissingPositive(a)
 
+'''
+Solution: the missing Positive must between 1 to n(the length of the array).
+    traverse the array and put the ith element to position x where arr[i]=x and x in [1,n] by swaping
+    After traverse, find the first i that a[i]!=i
+Type：Implement
+'''

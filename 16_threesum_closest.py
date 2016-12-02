@@ -1,3 +1,9 @@
+'''
+Given an array S of n integers, 
+find three integers in S such that the sum is closest to a given number, target.
+'''
+
+
 class Solution(object):
     def threeSumClosest(self, nums, target):
         """
@@ -25,7 +31,7 @@ class Solution(object):
     def search(self,sum,target):
         left,right=0,len(sum)-1
         mid=(left+right)/2
-        while left<=right and sum[mid]<>target:
+        while left<=right and sum[mid]!=target:
             mid=(left+right)/2
             if sum[mid]>target:
                 right=mid-1
@@ -36,3 +42,9 @@ class Solution(object):
 S = [-1,2,-4,1,6]
 #S=[0,0,0]
 print Solution().threeSumClosest(S,1)
+
+'''
+Solution: traverse the array, compute the two-sum value of the previous nums,
+    use binary search to find two-sum that is closet to target-current num
+Type: Binary Search
+'''

@@ -1,3 +1,9 @@
+'''
+Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.
+To scramble the string, we may choose any non-leaf node and swap its two children.
+Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1.
+'''
+
 class Solution(object):
 
     def isScramble_dp(self, s1, s2):
@@ -37,31 +43,25 @@ class Solution(object):
         """
         if s1==s2:
             return True
-        if len(s1)!=len(s2):
+        if sorted(s1)!=sorted(s2):
             return False
-        d={}
-        cnt=0
-        for i in range(len(s1)-1):
-            d[s1[i]]=1 if s1[i] not in d else d[s1[i]]+1
-            if d[s1[i]]<=0:
-                cnt+=1
-            d[s2[i]]=-1 if s2[i] not in d else d[s2[i]]-1
-            if d[s2[i]]>=0:
-                cnt+=1
-            if cnt==i+1 and self.isScramble(s1[i+1:],s2[i+1:]) and self.isScramble(s1[:i+1],s2[:i+1]):
+        for i in xrange(1,len(s1)):
+            if self.isScramble(s1[:i],s2[:i]) and self.isScramble(s1[i:],s2[i:]):
                 return True
-        d={}
-        cnt=0
-        for i in range(len(s1)-1):
-            d[s1[i]]=1 if s1[i]  not in d else d[s1[i]]+1
-            if d[s1[i]]<=0:
-                cnt+=1
-            d[s2[-i-1]]=-1 if s2[-i-1] not in d else d[s2[-i-1]]-1
-            if d[s2[-i-1]]>=0:
-                cnt+=1
-            if cnt==i+1 and self.isScramble(s1[i+1:],s2[:len(s2)-i-1]) and self.isScramble(s1[:i+1],s2[len(s2)-i-1:]):
+            if self.isScramble(s1[:i],s2[-i:]) and self.isScramble(s1[i:],s2[:-i]):
                 return True
         return False
+            
 
 print Solution().isScramble_dp('abc','cab')
 print Solution().isScramble('great','regat')
+
+'''
+Solution: Enumerate the split point and the check isomorphism of the respective left part and right part recursively. 
+    Remember to check scramble operation of the node itself, which means the left part of s1 can be isomorphic to either left or right part of s2. 
+    use memorization or check the the equality of sorted string to prune.     
+
+    Another solution is DP,
+
+Type: Recursion, DP
+'''

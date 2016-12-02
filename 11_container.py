@@ -1,3 +1,8 @@
+'''
+Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai).
+n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). 
+Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+'''
 from operator import itemgetter
 
 class Node:
@@ -52,3 +57,11 @@ class Solution(object):
 
 h=[2,5,3,7,6]
 print Solution().maxArea(h) 
+
+'''
+Solution#1: sort the line by height then traverse, the area is the distance to the leftest or rightest higher line multify the height of itself
+    use a double-linked list to reach the leftest and rightest position
+Solution#2:Begin from the two ends, say the current area is W*H, 
+    to make it bigger, we must reduce W and improve H, 
+    each time desert the shorter line and shrink the segment until two ends meet.vice versa
+'''

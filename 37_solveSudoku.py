@@ -47,4 +47,10 @@ Solution().solveSudoku(board)
 print board
 #["519748632","783652419","426139875","357986241","264317598","198524367","975863124","832491756","641275983"]
 
- 
+'''
+Solution: use three groups of set to record the number appeared in each row, column, square and all empty grid.
+    traverse each number from 0 to 9 and checking the sets to judge whether its legal, 
+    if legal, put the number in three respective sets and try another grid recursively. 
+    remember to restore the status when the recursion tracked back.
+Type: Recursion
+'''

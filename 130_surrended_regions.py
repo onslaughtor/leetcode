@@ -1,40 +1,43 @@
+'''
+Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
+
+A region is captured by flipping all 'O's into 'X's in that surrounded region.
+'''
+from collections import deque
 class Solution(object):
     def solve(self, board):
         """
         :type board: List[List[str]]
         :rtype: void Do not return anything, modify board in-place instead.
         """
+        queue=deque([])
         n=len(board)
         if n==0:
             return 
         m=len(board[0])
-        from collections import deque
-        q=deque([])
         for i in xrange(m):
-            self.check(board,0,i,q)
-            self.check(board,n-1,i,q)
-        for i in xrange(n):
-            self.check(board,i,0,q)
-            self.check(board,i,m-1,q)
-
-        while len(q)>0:
-            x=q.popleft()
-            self.check(board,x[0]-1,x[1],q)
-            self.check(board,x[0]+1,x[1],q)
-            self.check(board,x[0],x[1]-1,q)
-            self.check(board,x[0],x[1]+1,q)
+            self.check(board,0,i,queue)
+            self.check(board,n-1,i,queue)
+        for i in xrange(1,n-1):
+            self.check(board,i,0,queue)
+            self.check(board,i,m-1,queue)
             
-        for i in xrange(n):
-            for j in xrange(m):
-                if board[i][j]=='Y':
-                    board[i][j]='O'
+        while len(queue)>0:
+            x,y=queue.popleft()
+            self.check(board,x-1,y,queue)
+            self.check(board,x+1,y,queue)
+            self.check(board,x,y-1,queue) 
+            self.check(board,x,y+1,queue)  
+        for x in xrange(n):
+            for y in xrange(m):
+                if board[x][y]=='Y':
+                    board[x][y]='O'
                 else:
-                    board[i][j]='X'
-                
-    def check(self,board,i,j,q):
-        if i>=0 and i<len(board) and j>=0 and j<len(board[i]) and board[i][j]=='O':
-            board[i][j]='Y'
-            q.append((i,j))
-
-
-
+                    board[x][y]='X'
+                    
+        
+    def check(self,board,x,y,queue):
+        if x>=0 and x<len(board) and y>=0 and y<len(board[x]) and board[x][y]=='O':
+            board[x][y]='Y'
+            queue.append((x,y))
+        

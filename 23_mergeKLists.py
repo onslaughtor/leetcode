@@ -39,3 +39,7 @@ class Solution(object):
             print tmp.val
             tmp=tmp.next
         return head.next
+'''
+Solution: similar to merge sort with a embeded merge operation for two lists
+Type: Divide and Conquer
+'''

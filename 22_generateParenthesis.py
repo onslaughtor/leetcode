@@ -1,3 +1,6 @@
+'''
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+'''
 class Solution(object):
     def generateParenthesis(self, n):
         """
@@ -18,3 +21,10 @@ class Solution(object):
 
 
 print Solution().generateParenthesis(3)
+
+'''
+Solution: at each position ,when there is less ')' than '(' in the previous result, then we can add a ')'; 
+    when the number of '(' is less than n, then '(' can be added. 
+    solve the next position recursively
+Type: Recursion
+'''

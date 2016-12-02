@@ -16,8 +16,6 @@ class Solution(object):
                 j=nxt[j]
             if t[i]==t[j+1]:
                 nxt[i]=j+1
-        print t
-        print nxt
         return s[:nxt[-1]:-1]+s
 
 print Solution().shortestPalindrome('aabbaa')
@@ -27,3 +25,5 @@ Solution:
 Type: KMP
 Inspiration: palindrome related algorithms are often strange and creative 
 '''
+
+ 

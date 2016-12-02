@@ -1,3 +1,7 @@
+'''
+You are given a string s, and a list of words, that are all of the same length. 
+Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
+'''
 class Solution(object):
     def findSubstring(self, s, words):
         """
@@ -54,3 +58,9 @@ class Solution(object):
     
 print Solution().findSubstring('wordgoodgoodgoodbestword',["word","good","best","good"])
 
+'''
+Solution: the length of the matched substring must be constant. 
+    enumerate the starting point(0,len(word)-1) and traverse from left to right, 
+    move len(words) per time and update the number of matched words by add one and remove one.
+Type: Implement
+'''

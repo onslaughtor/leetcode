@@ -1,3 +1,8 @@
+'''
+You are given two linked lists representing two non-negative numbers. 
+The digits are stored in reverse order and each of their nodes contain a single digit. 
+Add the two numbers and return it as a linked list.
+'''
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -30,3 +35,9 @@ class Solution(object):
 
 
 
+'''
+Solution: traverse l2 and add the number to respective bit of l1.
+    define a variable to record whether there's a carry from previous bit
+    if l2 plus carry is longer than l1, then extend l1
+Type: Implement
+'''
